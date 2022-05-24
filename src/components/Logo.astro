@@ -1,0 +1,12 @@
+---
+    // Export a "Props" interface to .
+    export interface Props {
+        height?: number,
+        width?: number,
+    }
+    const { height = 500, width = 200 } = Astro.props;
+---
+
+<div class="justify-center flex">
+    <img height={height} width={width} src="/logo.svg" class="text-center" alt="Khaled">
+</div>

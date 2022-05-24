@@ -1,0 +1,12 @@
+---
+    // Export a "Props" interface to .
+    export interface Props {
+        text: string,
+        target: string
+    }
+    const { text, target } = Astro.props;
+---
+
+<a href={target} class="btn">
+    {text}
+</a>

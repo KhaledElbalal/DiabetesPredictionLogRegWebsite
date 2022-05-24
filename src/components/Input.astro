@@ -1,0 +1,12 @@
+---
+    // Export a "Props" interface to .
+    export interface Props {
+        title: string,
+
+    }
+    const { title } = Astro.props;
+---
+
+<input type="text" placeholder={title} name={title} id={title}
+    class="block w-full py-6 px-8 rounded-lg text-lg placeholder:text-gray-300 text-white font-bold bg-brand active:outline-none focus:outline-none"
+    required />

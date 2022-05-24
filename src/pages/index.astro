@@ -1,0 +1,84 @@
+---
+	import Logo from '../components/Logo.astro';
+	import Section from '../components/Section.astro';
+	import Button from '../components/Button.astro';
+	import Input from '../components/Input.astro';
+	import '../styles/global.css';
+	import '../styles/home.css';
+	let title = 'Diabetes Prediction';
+---
+
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width">
+	<title>{title}</title>
+
+	<link rel="icon" type="image/x-icon" href="/favicon.ico" />
+</head>
+
+<body>
+	<main>
+		<Logo />
+		<div class="text-center py-8">
+			<Button text="Jump to model" target="#model" />
+		</div>
+		<Section>
+			<div class="py-10 lg:py-16 mx-auto lg:max-w-xl">
+				<h1>Understanding Diabetes</h1>
+				<p>Diabetes mellitus, commonly known as diabetes, is a group of metabolic disorders
+					characterized by a
+					high blood sugar level -hyperglycemia- over a prolonged period of time. Symptoms often include
+					frequent urination, increased thirst and increased appetite. If left untreated, diabetes can cause
+					many health complications. Acute complications can include diabetic ketoacidosis, hyperosmolar
+					hyperglycemic state, or death. Serious long-term complications include cardiovascular disease,
+					stroke, chronic kidney disease, foot ulcers, damage to the nerves, damage to the eyes and cognitive
+					impairment.</p>
+				<h1>Our business Question & Model Used</h1>
+				<p>The data is from <a class="underline font-bold"
+						href="https://www.kaggle.com/datasets/kandij/diabetes-dataset">Kaggle.</a>The data was collected
+					and made available by “National Institute of Diabetes and Digestive and Kidney Diseases” as part of
+					the Pima Indians Diabetes Database. </p>
+				<p>The data includes 768 Patients, all are adult females. 268 of them have diabetes
+					and the other 500 do not. We are asked to determine if a patient has diabetes from data such as:
+					Pregnancies, Glucose, BloodPressure, SkinThickness, Insulin, MI, Age & DiabetesPedigreeFunction. All
+					in all, we have 8 independent variables and 1 outcome variable.</p>
+				<p>This is a classification problem, so we are going to be using Logisitic
+					Regression as a binary classifier, and tuning it using GridSearch.</p>
+				<h1>Data Understanding & Preprocessing</h1>
+				<p>The data contains no null values. There is 768 rows, each row represents a
+					patient. However, there is some bad data, some non-zero values include zero as a value. So we will
+					need to fix this by swapping it with the mean. </p>
+				<p>The data also has the Pregnancies columns represent the number of pregnancies
+					each female had, instead we will switch it to Pregnant and not Pregnant (This improved model
+					accuracy by 1%). We will also scale the data using the StandardScaler.</p>
+				<h1>Running the Logisitic Regression model</h1>
+				<p>We first need to split our model into training and testing data to avoid overfitting. We are going to
+					use 30% of the data for testing and 70% for training.</p>
+				<p>After using GridSearch we found the ideal parameters for our Logisitic
+					Regression Model (C=1.623776739188721, max_iter=1000, solver='sag'). We will then fit the training
+					data.</p>
+				<h1>Model evaluation</h1>
+				<p>At the end after all of our Optimizations. We were able to obtain a model accuracy of 79.221%, and an
+					F1-Score of 0.696. We got the following confusion matrix:</p>
+				<img src="/output.png" class="py-4 mx-auto" alt="Confusion matrix of the logisitic regression model" />
+				<h1 id="model">Model testing</h1>
+				<p>You can use the model here:</p>
+				<form class="space-y-6" action="http://167.172.105.209/prediction" name="prediction" method="POST">
+					<Input title="Pregnancies" />
+					<Input title="Glucose" />
+					<Input title="BloodPressure" />
+					<Input title="SkinThickness" />
+					<Input title="Insulin" />
+					<Input title="BMI" />
+					<Input title="DiabetesPedigreeFunction" />
+					<Input title="Age" />
+					<button type="submit" class="btn w-full">Submit</button>
+				</form>
+			</div>
+		</Section>
+	</main>
+</body>
+
+</html>
