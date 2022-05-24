@@ -2,12 +2,13 @@
     // Export a "Props" interface to .
     export interface Props {
         title: string,
-        step: string
+        step: string,
+        placeholder: string
 
     }
-    const { title, step } = Astro.props;
+    const { title, step, placeholder } = Astro.props;
 ---
 
-<input type="number" step={step} placeholder={title} name={title} id={title}
+<input type="number" step={step} placeholder={placeholder} name={title} id={title}
     class="block w-full px-8 py-6 text-lg font-bold text-white rounded-lg placeholder:text-gray-300 bg-brand active:outline-none focus:outline-none"
     required />
