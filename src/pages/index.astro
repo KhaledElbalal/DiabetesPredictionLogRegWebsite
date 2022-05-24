@@ -21,11 +21,11 @@
 <body>
 	<main>
 		<Logo />
-		<div class="text-center py-8">
+		<div class="py-8 text-center">
 			<Button text="Jump to model" target="#model" />
 		</div>
 		<Section>
-			<div class="py-10 lg:py-16 mx-auto lg:max-w-xl">
+			<div class="py-10 mx-auto lg:py-16 lg:max-w-xl">
 				<h1>Understanding Diabetes</h1>
 				<p>Diabetes mellitus, commonly known as diabetes, is a group of metabolic disorders
 					characterized by a
@@ -36,7 +36,7 @@
 					stroke, chronic kidney disease, foot ulcers, damage to the nerves, damage to the eyes and cognitive
 					impairment.</p>
 				<h1>Our business Question & Model Used</h1>
-				<p>The data is from <a class="underline font-bold"
+				<p>The data is from <a class="font-bold underline"
 						href="https://www.kaggle.com/datasets/kandij/diabetes-dataset">Kaggle.</a>The data was collected
 					and made available by “National Institute of Diabetes and Digestive and Kidney Diseases” as part of
 					the Pima Indians Diabetes Database. </p>
@@ -65,7 +65,8 @@
 				<img src="/output.png" class="py-4 mx-auto" alt="Confusion matrix of the logisitic regression model" />
 				<h1 id="model">Model testing</h1>
 				<p>You can use the model here:</p>
-				<form class="space-y-6" action="http://167.172.105.209/prediction" name="prediction" method="POST">
+				<form class="space-y-6" action="https://logregresult.khaledelbalal.me/prediction" name="prediction"
+					method="POST">
 					<Input title="Pregnancies" />
 					<Input title="Glucose" />
 					<Input title="BloodPressure" />
@@ -74,7 +75,7 @@
 					<Input title="BMI" />
 					<Input title="DiabetesPedigreeFunction" />
 					<Input title="Age" />
-					<button type="submit" class="btn w-full">Submit</button>
+					<button type="submit" class="w-full btn">Submit</button>
 				</form>
 			</div>
 		</Section>
