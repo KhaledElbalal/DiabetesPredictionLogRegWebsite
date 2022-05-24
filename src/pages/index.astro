@@ -68,14 +68,14 @@
 				<p>You can use the model here:</p>
 				<form class="space-y-6" action="https://logregresult.khaledelbalal.me/prediction" name="prediction"
 					method="POST">
-					<Input title="Pregnancies" />
-					<Input title="Glucose" />
-					<Input title="BloodPressure" />
-					<Input title="SkinThickness" />
-					<Input title="Insulin" />
-					<Input title="BMI" />
-					<Input title="DiabetesPedigreeFunction" />
-					<Input title="Age" />
+					<Input title="Pregnancies" step="1" />
+					<Input title="Glucose" step=".01" />
+					<Input title="BloodPressure" step=".01" />
+					<Input title="SkinThickness" step=".01" />
+					<Input title="Insulin" step=".01" />
+					<Input title="BMI" step=".01" />
+					<Input title="DiabetesPedigreeFunction" step=".001" />
+					<Input title="Age" step="1" />
 					<button type="submit" class="w-full btn">Submit</button>
 				</form>
 			</div>
